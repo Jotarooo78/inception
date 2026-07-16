@@ -32,14 +32,14 @@ text
 
 127.0.0.1  armosnie.42.fr
 
-Place your environment variables in a .env file inside the srcs/ folder (see the provided example). Do not commit this file.
-
 Build and start the entire stack with the Makefile:
 bash
 
-make up
+make up & secret
 
-    This command runs docker-compose up -d --build and ensures all services are built and started in detached mode.
+    This command creates a directory at the root of Inception with all the sensitive informations like password for mariadb and wordpress to avoiding enventuel leaks from docker inspect in wordpress.
+
+    After that, it runs docker-compose up -d --build and ensures all services are built and started in detached mode.
 
     Access the website at https://armosnie.42.fr. Accept the self‑signed certificate warning.
 
@@ -49,7 +49,7 @@ Stopping & Cleaning
 
     make prune to clean partitions and volumes
 
-    after that sudo "rm -rf /home/armosnie/data/" with my password : Superman78
+    after that sudo "rm -rf /home/armosnie/data/" with the password : Superman78
 
 Resources
 
